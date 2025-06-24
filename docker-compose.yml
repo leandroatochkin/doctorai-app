@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama
+
+  backend:
+    build: ./backend
+    container_name: doctorai-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ollama
+    environment:
+      - PORT=3000
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: doctorai-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  ollama-models:
