@@ -32,3 +32,6 @@ jobs:
 
     - name: Build frontend image
       run: docker build -t doctorai-frontend ./frontend
+
+    - name: List backend folder files
+      run: ls -la ./backend
