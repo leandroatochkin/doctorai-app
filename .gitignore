@@ -25,7 +25,6 @@ Thumbs.db
 
 # Docker junk (optional)
 **/.dockerignore
-**/Dockerfile
 
 # Ollama cache (if stored locally)
 ollama-models/
