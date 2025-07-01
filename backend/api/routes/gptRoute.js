@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
 
     const result = await response.json()
     console.log(result)
-    res.json({ reply: result.message.content })
+    res.status(200).json({ reply: result.message.content })
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Failed to reach local model' })

@@ -1,0 +1,2 @@
+#TO START THE APP
+RUN docker compose up --build

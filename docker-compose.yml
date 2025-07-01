@@ -23,10 +23,15 @@ services:
   frontend:
     build: ./frontend
     container_name: doctorai-frontend
+    working_dir: /app
+    command: npm run dev -- --host
+    volumes:
+    - ./frontend:/app
+    - /app/node_modules
     ports:
-      - "5173:80"
+    - "5173:5173"
     depends_on:
-      - backend
+    - backend
 
 volumes:
   ollama-models:
